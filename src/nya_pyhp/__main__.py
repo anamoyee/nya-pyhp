@@ -29,5 +29,9 @@ def main(template_file: str, /, *, type: str = None):
 		sys.exit(1)
 
 
-if __name__ == "__main__":
+def cli():
 	arguably.run()
+
+
+if __name__ == "__main__":
+	cli()

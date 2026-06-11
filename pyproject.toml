@@ -9,7 +9,8 @@ dependencies = [
 ]
 
 [project.scripts]
-pyhp = "nya_pyhp.__main__:main"
+pyhp = "nya_pyhp.__main__:cli"
+nya_pyhp = "nya_pyhp.__main__:cli"
 
 [build-system]
 requires = ["hatchling"]
