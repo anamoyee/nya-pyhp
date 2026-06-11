@@ -2,10 +2,12 @@ import pyhp
 
 
 def test_pyhp():
-	template = """<ul>
-\t<!-- {{! while row := fetch_row(): }} -->
-\t\t<li><!--{{ row }}--></li>
-</ul>"""
+	template = """
+<ul>
+	<!-- {{! while row := fetch_row(): }} -->
+		<li><!--{{ row }}--></li>
+</ul>
+"""[1:-1]
 
 	rows = ["Alice", "Bob", "Charlie"]
 	row_idx = 0

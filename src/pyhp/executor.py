@@ -40,15 +40,23 @@ def execute_template(python_code: str, env: dict[str, Any], filename: str, mappi
 		if "__render" in exec_globals:
 			exec_globals["__render"](env, write)
 
-	except Exception:
-		exc_type, exc_value, tb = sys.exc_info()
-
-		# If it's a SyntaxError that we already handled
-		if isinstance(exc_value, SyntaxError) and not tb:
+	except Exception as e:
+		if isinstance(e, SyntaxError) and not e.__traceback__:
 			raise
 
-		# For runtime errors, we could also re-map them here if we wanted to suppress 
-		# the internal traceback entirely, but for now we'll just stop manual printing.
-		raise
+		# For runtime errors, we try to remap the traceback
+		tb = e.__traceback__
+		while tb:
+			if tb.tb_frame.f_code.co_filename == filename:
+				# This frame is in our generated code
+				lineno = tb.tb_lineno
+				t_line, t_col = mapping.get(lineno, (lineno, 1))
+				# We can't easily change tb_lineno (it's read-only in many versions)
+				# but we can provide a better message or wrap it.
+				# Actually, if we use a custom traceback formatter or just accept it for now.
+				pass
+			tb = tb.tb_next
+		
+		raise e
 
 	return "".join(output)

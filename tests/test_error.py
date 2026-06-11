@@ -7,7 +7,7 @@ def test_error_reporting():
 Line 1: OK
 Line 2: <!-- {{ 1/0 }} -->
 Line 3: OK
-"""
+"""[1:-1]
 	with pytest.raises(ZeroDivisionError):
 		pyhp.interpolate(template, ".html", filename="error_test.html")
 
