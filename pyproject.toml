@@ -1,13 +1,15 @@
 [project]
-name = 'pyhp'
+name = 'nya-pyhp'
 dynamic = ['version']
 description = 'PHP-like file value interpolator but with python and arbitrary file types not just html'
 readme = "README.md"
 requires-python = ">=3.14"
-dependencies = []
+dependencies = [
+    "arguably",
+]
 
-# [project.scripts]
-# pyhp = "pyhp.__main__:main"
+[project.scripts]
+pyhp = "pyhp.__main__:main"
 
 [build-system]
 requires = ["hatchling"]
@@ -16,3 +18,10 @@ build-backend = "hatchling.build"
 [tool.hatch.version]
 path = "src/pyhp/_version.py"
 pattern = '__version__(?:: str)? *= *\"(?P<version>[^\"]+)\"'
+
+[dependency-groups]
+dev = [
+    "pytest>=9.0.3",
+    "rich>=15.0.0",
+    "tcrutils>=13.1.39",
+]
