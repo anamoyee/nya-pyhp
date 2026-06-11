@@ -1,4 +1,4 @@
-import pyhp
+import nya_pyhp
 
 
 def test_fetch_row():
@@ -22,7 +22,7 @@ def test_fetch_row():
 
 	env = {"fetch_row": fetch_row}
 
-	result = pyhp.interpolate(template, ".html", env)
+	result = nya_pyhp.interpolate(template, ".html", env)
 	expected = """
 <ul>
 		<li>Alice</li>

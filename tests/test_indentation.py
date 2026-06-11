@@ -1,4 +1,4 @@
-import pyhp
+import nya_pyhp
 
 
 def test_indentation_logic():
@@ -15,7 +15,7 @@ Items:
 	# Line 3: L=1 -> __write("\tItem 2\n")
 	# Line 4: L=2 -> if True: \n __write("\t\tSubitem A\n")
 
-	result = pyhp.interpolate(template, ".html")
+	result = nya_pyhp.interpolate(template, ".html")
 	print("Indentation test result:")
 	print(repr(result))
 
@@ -26,7 +26,7 @@ Start
         Space-indented (treated as L=0)
 	One tab
 """[1:-1]
-	result_mixed = pyhp.interpolate(template_mixed, ".html")
+	result_mixed = nya_pyhp.interpolate(template_mixed, ".html")
 	print("\nMixed indentation test result:")
 	print(repr(result_mixed))
 

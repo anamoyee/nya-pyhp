@@ -25,6 +25,3 @@ dev = [
     "rich>=15.0.0",
     "tcrutils>=13.1.39",
 ]
-
-[tool.hatch.build.targets.wheel]
-packages = ["src/pyhp"]
