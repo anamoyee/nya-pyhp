@@ -1,0 +1,18 @@
+[project]
+name = 'pyhp'
+dynamic = ['version']
+description = 'PHP-like file value interpolator but with python and arbitrary file types not just html'
+readme = "README.md"
+requires-python = ">=3.14"
+dependencies = []
+
+# [project.scripts]
+# pyhp = "pyhp.__main__:main"
+
+[build-system]
+requires = ["hatchling"]
+build-backend = "hatchling.build"
+
+[tool.hatch.version]
+path = "src/pyhp/_version.py"
+pattern = '__version__(?:: str)? *= *\"(?P<version>[^\"]+)\"'
