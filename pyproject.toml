@@ -9,14 +9,14 @@ dependencies = [
 ]
 
 [project.scripts]
-pyhp = "pyhp.__main__:main"
+pyhp = "nya_pyhp.__main__:main"
 
 [build-system]
 requires = ["hatchling"]
 build-backend = "hatchling.build"
 
 [tool.hatch.version]
-path = "src/pyhp/_version.py"
+path = "src/nya_pyhp/_version.py"
 pattern = '__version__(?:: str)? *= *\"(?P<version>[^\"]+)\"'
 
 [dependency-groups]
