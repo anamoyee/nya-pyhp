@@ -1,8 +1,5 @@
-import io
 import linecache
 import re
-import sys
-import traceback
 from typing import Any
 
 
@@ -54,7 +51,6 @@ def execute_template(python_code: str, env: dict[str, Any], filename: str, mappi
 				# We can't easily change tb_lineno (it's read-only in many versions)
 				# but we can provide a better message or wrap it.
 				# Actually, if we use a custom traceback formatter or just accept it for now.
-				pass
 			tb = tb.tb_next
 		
 		raise e

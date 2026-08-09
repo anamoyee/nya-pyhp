@@ -1,5 +1,6 @@
-import nya_pyhp
 import pytest
+
+import nya_pyhp
 
 
 def test_error_reporting():

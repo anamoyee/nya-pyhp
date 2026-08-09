@@ -22,13 +22,15 @@ def test_pyhp():
 
 	env = {"fetch_row": fetch_row}
 
-	try:
-		result = nya_pyhp.interpolate(template, ".html", env)
-		print("Result:")
-		print(result)
-	except Exception:
-		print("Caught exception as expected if there was an error")
+	result = nya_pyhp.interpolate(template, ".html", env)
 
-
-if __name__ == "__main__":
-	test_pyhp()
+	assert (
+		result
+		== """
+<ul>
+		<li>Alice</li>
+		<li>Bob</li>
+		<li>Charlie</li>
+</ul>
+"""[1:-1]
+	)
